@@ -9,12 +9,13 @@ use Term::ANSIScreen qw(cls);
 my $FileEditor = "/bin/nano";
 my $InitDName = "/etc/init.d/conquest";
 my $CONQUESTDIR = "/root/conquest";
+my $BACKUPPROG = "/root/ConquestBackup/conquestbackup.pl";
 
 ###################################################
 # No changes below here
 ###################################################
 
-my $MMC_ver = "0.5.0";
+my $MMC_ver = "0.5.1";
 my $Record = "false";	# Are results saved?
 my $TempDir = "/tmp";
 my $RobotName = "";
@@ -75,6 +76,7 @@ sub MainMenu
                                       '4', 'Turn Off Respawn',
                                       '5', 'Turn Respawn On',
                                       '6', 'Edit server.cfg',
+                                      '7', 'Run a Backup',
                                       'q', 'Quit CMC' ] );
 }
 
@@ -137,6 +139,12 @@ while (-1)
 	{
 		# Edit server.cfg file
 		system("$FileEditor /opt/etc/conquest/conquest.conf");
+	}
+	elsif ($menuselection eq "7")
+	{
+		# Run the backup process
+		system("$BACKUPPROG");
+		sleep(5);
 	}
 }
 
