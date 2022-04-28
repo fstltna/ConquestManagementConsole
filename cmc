@@ -120,7 +120,7 @@ while (-1)
 	elsif ($menuselection eq "3")
 	{
 		$d->msgbox( text => "To exit the Conquest Server console and return to CMC press CTRL-A CTRL-D" );
-		system("screen -r");
+		system("screen -r Conquest");
 	}
 	elsif ($menuselection eq "4")
 	{
